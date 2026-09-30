@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SkillBridge"
+description = "A full-stack learning marketplace where learners discover practical courses, track progress, and connect with expert mentors through a focused, motivating workspace."
+version = "1.0.0"
+id = "artifacts/skillbridge"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22143
+
+[services.development]
+run = "pnpm --filter @workspace/skillbridge run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/skillbridge", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/skillbridge/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22143"
+BASE_PATH = "/"

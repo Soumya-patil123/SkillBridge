@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "SkillBridge: API",
+      "type": "shell",
+      "command": "pnpm --filter @workspace/api-server run dev",
+      "options": {
+        "env": {
+          "PORT": "5000"
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SkillBridge: Web",
+      "type": "shell",
+      "command": "pnpm --filter @workspace/skillbridge run dev",
+      "options": {
+        "env": {
+          "PORT": "5173",
+          "BASE_PATH": "/"
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SkillBridge: Typecheck",
+      "type": "shell",
+      "command": "pnpm run typecheck",
+      "problemMatcher": ["$tsc"],
+      "group": "build"
+    }
+  ]
+}

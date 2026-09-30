@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 42 43% 96%;
+  --foreground: 229 28% 18%;
+  --border: 39 25% 86%;
+  --input: 39 25% 82%;
+  --ring: 171 42% 37%;
+  --card: 42 48% 99%;
+  --card-foreground: 229 28% 18%;
+  --card-border: 39 30% 89%;
+  --popover: 42 48% 99%;
+  --popover-foreground: 229 28% 18%;
+  --primary: 171 42% 31%;
+  --primary-foreground: 42 48% 98%;
+  --secondary: 37 55% 88%;
+  --secondary-foreground: 229 28% 18%;
+  --muted: 40 28% 91%;
+  --muted-foreground: 228 13% 46%;
+  --accent: 12 79% 64%;
+  --accent-foreground: 229 28% 18%;
+  --destructive: 6 61% 48%;
+  --destructive-foreground: 42 48% 98%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-mono: 'DM Mono', monospace;
+  --radius: 1rem;
+  --shadow-soft: 0 14px 38px rgba(50, 43, 31, .07);
+  --shadow-lift: 0 20px 50px rgba(50, 43, 31, .13);
+}
+
+/* Overall base font size */
+html {
+  font-size: 15px;
+}
+
+/* Slightly enlarge the complete SkillBridge interface */
+.app-shell {
+  zoom: 1.5;
+}
+
+.dark {
+  --background: 229 28% 13%;
+  --foreground: 42 43% 95%;
+  --border: 229 17% 25%;
+  --input: 229 17% 28%;
+  --ring: 171 42% 57%;
+  --card: 229 24% 17%;
+  --card-foreground: 42 43% 95%;
+  --card-border: 229 17% 25%;
+  --popover: 229 24% 17%;
+  --popover-foreground: 42 43% 95%;
+  --primary: 171 42% 57%;
+  --primary-foreground: 229 28% 13%;
+  --secondary: 229 17% 25%;
+  --secondary-foreground: 42 43% 95%;
+  --muted: 229 17% 22%;
+  --muted-foreground: 40 18% 68%;
+  --accent: 12 79% 64%;
+  --accent-foreground: 229 28% 13%;
+  --destructive: 6 61% 58%;
+  --destructive-foreground: 229 28% 13%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.25;
+  }
+}
+
+/* Make very small Tailwind text easier to read */
+
+
+/* ===== LARGE TEXT FOR BETTER READABILITY ===== */
+
+body {
+  font-size: 22px !important;
+}
+
+/* Small text */
+.text-xs {
+  font-size: 18px !important;
+}
+
+.text-sm {
+  font-size: 20px !important;
+}
+
+.text-base {
+  font-size: 20px !important;
+}
+
+/* Medium text */
+.text-lg {
+  font-size: 24px !important;
+}
+
+.text-xl {
+  font-size: 26px !important;
+}
+
+/* Headings */
+.text-2xl {
+  font-size: 30px !important;
+}
+
+.text-3xl {
+  font-size: 36px !important;
+}
+
+/* Fixed tiny text used in the project */
+[class*="text-[9px]"] {
+  font-size: 14px !important;
+}
+
+[class*="text-[10px]"] {
+  font-size: 15px !important;
+}
+
+[class*="text-[11px]"] {
+  font-size: 16px !important;
+}
+
+[class*="text-[12px]"] {
+  font-size: 16px !important;
+}
+
+[class*="text-[13px]"] {
+  font-size: 17px !important;
+}
+
+[class*="text-[14px]"] {
+  font-size: 18px !important;
+}
+
+
+
+/* Animations */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(.96);
+    opacity: .48;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: .8;
+  }
+}
+
+.animate-rise {
+  animation: rise .55s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.delay-1 {
+  animation-delay: .06s;
+}
+
+.delay-2 {
+  animation-delay: .12s;
+}
+
+.delay-3 {
+  animation-delay: .18s;
+}
+
+.delay-4 {
+  animation-delay: .24s;
+}
+
+/* App layout */
+.app-shell {
+  min-height: 100dvh;
+  background: hsl(var(--background));
+}
+
+/* Grain effect */
+.grain::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  opacity: .035;
+  z-index: 30;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E");
+}
+
+/* Fonts */
+.display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -.045em;
+}
+
+.mono {
+  font-family: var(--app-font-mono);
+  letter-spacing: .02em;
+}
+
+/* Cards */
+.card-lift {
+  box-shadow: var(--shadow-soft);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Focus */
+.focus-ring:focus-visible {
+  outline: 3px solid hsl(var(--accent) / .45);
+  outline-offset: 3px;
+}
