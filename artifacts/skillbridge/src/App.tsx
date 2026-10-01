@@ -612,6 +612,22 @@ function CourseCard({
 function DashboardPage() {
   const dashboard = useGetDashboard();
   const activity = useGetActivity();
+  const [assessmentResult, setAssessmentResult] =
+    useState<AssessmentResult | null>(null);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(
+        'skillbridge-assessment-result',
+      );
+
+      if (stored) {
+        setAssessmentResult(JSON.parse(stored));
+      }
+    } catch {
+      setAssessmentResult(null);
+    }
+  }, []);
 
   if (dashboard.isLoading) return <LoadingBlock />;
 
@@ -629,23 +645,6 @@ function DashboardPage() {
     ...(data.weeklyActivity || []).map((item) => item.hours),
     1,
   );
-
-  const [assessmentResult, setAssessmentResult] =
-    useState<AssessmentResult | null>(null);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(
-        'skillbridge-assessment-result',
-      );
-
-      if (stored) {
-        setAssessmentResult(JSON.parse(stored));
-      }
-    } catch {
-      setAssessmentResult(null);
-    }
-  }, []);
 
   const assessmentSkills = assessmentResult
     ? Object.entries(assessmentResult.skillResults)
